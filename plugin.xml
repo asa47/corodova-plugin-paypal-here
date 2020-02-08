@@ -22,14 +22,8 @@
             </array>
         </config-file>
             
-        <!-- 
-                <source-file src="src/ios/CDVPayPalHere-Bridging-Header.h" />	
-                <source-file src="src/ios/CDVPayPalHere.swift" />
-
-                or
-
-                 <header-file src="src/ios/CDVPayPalHere.h"/>
-                 <source-file src="src/ios/CDVPayPalHere.m" />
-        -->
+        <source-file src="src/ios/CDVPayPalHere-Bridging-Header.h" />	
+        <source-file src="src/ios/CDVPayPalHere.swift" />
+            
     </platform>
 </plugin>
