@@ -6,23 +6,30 @@
     <license>Apache 2.0</license>
     <keywords>cordova,paypal,paypal here</keywords>
     <js-module src="www/CDVPayPalHere.js" name="CDVPayPalHere">
-        <clobbers target="cordova.plugins.CDVPayPalHere" />
+        <clobbers target="cordova.plugins.paypal" />
     </js-module>
     <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="CDVPayPalHere">
-                <param name="ios-package" value="CDVPayPalHere" />
-            </feature>
+        <dependency id="cordova-plugin-cocoapod-support"/>
+        <pods-config use-frameworks="true"></pods-config>
+        <pod name="PayPalHereSDKv2/Release" />
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="CDVPayPalHere"><param name="ios-package" value="CDVPayPalHere" /></feature>
         </config-file>
         <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
             <array>
                 <string>com.paypal.here.reader</string>
             </array>
         </config-file>
-        <source-file src="src/ios/CDVPayPalHere-Bridging-Header.h" />
-        <source-file src="src/ios/CDVPayPalHere.swift" />
-        <framework src="PayPalHereSDKv2" type="podspec" spec="2.1.0319315000" />
-        <hook type="before_plugin_install" src="scripts/before_plugin_install.sh" />
+            
+        <!-- 
+                <source-file src="src/ios/CDVPayPalHere-Bridging-Header.h" />	
+                <source-file src="src/ios/CDVPayPalHere.swift" />
+
+                or
+
+                 <header-file src="src/ios/CDVPayPalHere.h"/>
+                 <source-file src="src/ios/CDVPayPalHere.m" />
+        -->
     </platform>
-    <dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
 </plugin>
